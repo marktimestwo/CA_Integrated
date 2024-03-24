@@ -16,8 +16,7 @@ public class CA_Integrated {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        
-        hello test testing
+        testing!
     }
     
 }
