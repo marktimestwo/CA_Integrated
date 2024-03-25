@@ -290,6 +290,7 @@ public class CA_Integrated {
     }
 }
     
+    // This implements a part of a method application that generates academic reports in various formats.
     public ReportGenerator getReportGenerator(String outputType) {
         switch (outputType.toLowerCase()) {
             case "console":
