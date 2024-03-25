@@ -111,6 +111,7 @@ public class CA_Integrated {
         }
     }
     
+    // This defines an interface and a class for generating various reports and declares three methods
     public interface ReportGenerator {
     void generateCourseReport(ResultSet resultSet) throws SQLException;
     void generateStudentReport(ResultSet resultSet) throws SQLException;
