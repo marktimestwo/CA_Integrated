@@ -1,0 +1,100 @@
+Module: Module 1, Programme: Journalism, Enrolled Students: 0, Lecturer: Alex Brown, Room: Online
+Module: Module 2, Programme: Forensic Science, Enrolled Students: 0, Lecturer: Morgan Moore, Room: Room 6
+Module: Module 3, Programme: Risk Management, Enrolled Students: 0, Lecturer: Morgan Williams, Room: Room 42
+Module: Module 4, Programme: Nanotechnology, Enrolled Students: 1, Lecturer: Jordan Wilson, Room: Room 36
+Module: Module 5, Programme: Nanotechnology, Enrolled Students: 0, Lecturer: Taylor Johnson, Room: Room 1
+Module: Module 6, Programme: Psychology, Enrolled Students: 1, Lecturer: Taylor White, Room: Room 32
+Module: Module 7, Programme: Middle Eastern Studies, Enrolled Students: 0, Lecturer: Casey Harris, Room: Room 6
+Module: Module 8, Programme: Graphic Design, Enrolled Students: 0, Lecturer: Quinn White, Room: Room 31
+Module: Module 9, Programme: Machine Learning, Enrolled Students: 0, Lecturer: Jamie Johnson, Room: Room 1
+Module: Module 10, Programme: Peace Studies, Enrolled Students: 0, Lecturer: Morgan Wilson, Room: Online
+Module: Module 11, Programme: Mining Engineering, Enrolled Students: 0, Lecturer: Morgan Smith, Room: Room 37
+Module: Module 12, Programme: Theology, Enrolled Students: 0, Lecturer: Riley Brown, Room: Room 35
+Module: Module 13, Programme: Theology, Enrolled Students: 1, Lecturer: Alex Wilson, Room: Room 49
+Module: Module 14, Programme: Physics, Enrolled Students: 0, Lecturer: Robin White, Room: Online
+Module: Module 15, Programme: International Relations, Enrolled Students: 0, Lecturer: Jordan Wilson, Room: Room 4
+Module: Module 16, Programme: Sports Management, Enrolled Students: 0, Lecturer: Charlie Harris, Room: Room 35
+Module: Module 17, Programme: Entrepreneurship, Enrolled Students: 1, Lecturer: Jamie Moore, Room: Room 43
+Module: Module 18, Programme: Peace Studies, Enrolled Students: 1, Lecturer: Casey Moore, Room: Room 14
+Module: Module 19, Programme: Creative Writing, Enrolled Students: 1, Lecturer: Jordan Smith, Room: Room 49
+Module: Module 20, Programme: Theology, Enrolled Students: 0, Lecturer: Casey Harris, Room: Online
+Module: Module 21, Programme: European Studies, Enrolled Students: 0, Lecturer: Quinn Brown, Room: Room 22
+Module: Module 22, Programme: Software Engineering, Enrolled Students: 2, Lecturer: Quinn Lee, Room: Online
+Module: Module 23, Programme: Law, Enrolled Students: 0, Lecturer: Morgan Lee, Room: Room 1
+Module: Module 24, Programme: Social Work, Enrolled Students: 0, Lecturer: Robin Williams, Room: Room 11
+Module: Module 25, Programme: Aerospace Engineering, Enrolled Students: 1, Lecturer: Morgan Brown, Room: Room 44
+Module: Module 26, Programme: Psychology, Enrolled Students: 1, Lecturer: Jamie Wilson, Room: Room 24
+Module: Module 27, Programme: Education, Enrolled Students: 0, Lecturer: Morgan Moore, Room: Room 3
+Module: Module 28, Programme: Asian Studies, Enrolled Students: 0, Lecturer: Jamie Brown, Room: Room 35
+Module: Module 29, Programme: Petroleum Engineering, Enrolled Students: 0, Lecturer: Alex Moore, Room: Room 36
+Module: Module 30, Programme: African Studies, Enrolled Students: 1, Lecturer: Morgan White, Room: Room 31
+Module: Module 31, Programme: Forensic Science, Enrolled Students: 0, Lecturer: Riley Harris, Room: Room 4
+Module: Module 32, Programme: Risk Management, Enrolled Students: 0, Lecturer: Charlie Brown, Room: Room 19
+Module: Module 33, Programme: Latin American Studies, Enrolled Students: 0, Lecturer: Riley Johnson, Room: Room 47
+Module: Module 34, Programme: English Literature, Enrolled Students: 1, Lecturer: Riley Lee, Room: Room 36
+Module: Module 35, Programme: Theology, Enrolled Students: 0, Lecturer: Riley Moore, Room: Room 21
+Module: Module 36, Programme: Philosophy, Enrolled Students: 0, Lecturer: Robin Wilson, Room: Room 18
+Module: Module 37, Programme: Physical Therapy, Enrolled Students: 0, Lecturer: Taylor Smith, Room: Room 28
+Module: Module 38, Programme: History, Enrolled Students: 1, Lecturer: Robin Johnson, Room: Room 15
+Module: Module 39, Programme: History, Enrolled Students: 0, Lecturer: Morgan Wilson, Room: Room 42
+Module: Module 40, Programme: Biology, Enrolled Students: 0, Lecturer: Alex Smith, Room: Room 2
+Module: Module 41, Programme: Entrepreneurship, Enrolled Students: 0, Lecturer: Jordan Johnson, Room: Room 37
+Module: Module 42, Programme: Information Technology, Enrolled Students: 0, Lecturer: Casey Williams, Room: Room 11
+Module: Module 43, Programme: Sports Management, Enrolled Students: 0, Lecturer: Charlie Harris, Room: Room 23
+Module: Module 44, Programme: Psychology, Enrolled Students: 0, Lecturer: Riley Williams, Room: Room 44
+Module: Module 45, Programme: Public Administration, Enrolled Students: 0, Lecturer: Alex Brown, Room: Room 41
+Module: Module 46, Programme: Information Technology, Enrolled Students: 0, Lecturer: Riley Williams, Room: Room 12
+Module: Module 47, Programme: Public Health, Enrolled Students: 0, Lecturer: Charlie Brown, Room: Room 3
+Module: Module 48, Programme: Industrial Design, Enrolled Students: 0, Lecturer: Alex Williams, Room: Room 17
+Module: Module 49, Programme: Theater Arts, Enrolled Students: 0, Lecturer: Robin Lee, Room: Room 33
+Module: Module 50, Programme: Artificial Intelligence, Enrolled Students: 1, Lecturer: Casey Wilson, Room: Room 1
+Module: Module 51, Programme: Urban Planning, Enrolled Students: 0, Lecturer: Casey Harris, Room: Room 39
+Module: Module 52, Programme: Agriculture, Enrolled Students: 0, Lecturer: Taylor Brown, Room: Online
+Module: Module 53, Programme: Veterinary Medicine, Enrolled Students: 0, Lecturer: Robin Brown, Room: Room 47
+Module: Module 54, Programme: Data Science, Enrolled Students: 0, Lecturer: Taylor Johnson, Room: Room 43
+Module: Module 55, Programme: Computer Science, Enrolled Students: 0, Lecturer: Jamie Smith, Room: Room 41
+Module: Module 56, Programme: Computer Science, Enrolled Students: 0, Lecturer: Jamie White, Room: Room 14
+Module: Module 57, Programme: Machine Learning, Enrolled Students: 0, Lecturer: Quinn Brown, Room: Room 31
+Module: Module 58, Programme: Marine Biology, Enrolled Students: 1, Lecturer: Morgan White, Room: Room 25
+Module: Module 59, Programme: Biotechnology, Enrolled Students: 1, Lecturer: Quinn Johnson, Room: Room 3
+Module: Module 60, Programme: Digital Marketing, Enrolled Students: 1, Lecturer: Charlie Moore, Room: Room 4
+Module: Module 61, Programme: Political Science, Enrolled Students: 0, Lecturer: Quinn Brown, Room: Room 31
+Module: Module 62, Programme: African Studies, Enrolled Students: 0, Lecturer: Alex Taylor, Room: Room 35
+Module: Module 63, Programme: Civil Engineering, Enrolled Students: 1, Lecturer: Jordan Johnson, Room: Room 44
+Module: Module 64, Programme: Fashion Design, Enrolled Students: 0, Lecturer: Casey Harris, Room: Room 14
+Module: Module 65, Programme: International Relations, Enrolled Students: 0, Lecturer: Alex Johnson, Room: Room 49
+Module: Module 66, Programme: Public Health, Enrolled Students: 0, Lecturer: Taylor Smith, Room: Room 41
+Module: Module 67, Programme: Business Administration, Enrolled Students: 1, Lecturer: Casey Moore, Room: Room 9
+Module: Module 68, Programme: Sports Management, Enrolled Students: 1, Lecturer: Casey Johnson, Room: Online
+Module: Module 69, Programme: Tourism Management, Enrolled Students: 0, Lecturer: Alex Wilson, Room: Room 32
+Module: Module 70, Programme: Public Administration, Enrolled Students: 1, Lecturer: Jamie Johnson, Room: Room 9
+Module: Module 71, Programme: Artificial Intelligence, Enrolled Students: 0, Lecturer: Morgan Williams, Room: Room 27
+Module: Module 72, Programme: Mathematics, Enrolled Students: 0, Lecturer: Quinn Smith, Room: Room 3
+Module: Module 73, Programme: Creative Writing, Enrolled Students: 0, Lecturer: Casey Moore, Room: Room 4
+Module: Module 74, Programme: Latin American Studies, Enrolled Students: 1, Lecturer: Riley Lee, Room: Room 45
+Module: Module 75, Programme: Electrical Engineering, Enrolled Students: 1, Lecturer: Casey Lee, Room: Room 15
+Module: Module 76, Programme: Computer Science, Enrolled Students: 0, Lecturer: Taylor Moore, Room: Room 33
+Module: Module 77, Programme: Biology, Enrolled Students: 1, Lecturer: Jordan Taylor, Room: Room 5
+Module: Module 78, Programme: English Literature, Enrolled Students: 1, Lecturer: Alex Wilson, Room: Room 4
+Module: Module 79, Programme: Marine Biology, Enrolled Students: 1, Lecturer: Jamie Moore, Room: Room 46
+Module: Module 80, Programme: Physics, Enrolled Students: 0, Lecturer: Morgan Taylor, Room: Room 12
+Module: Module 81, Programme: Fashion Design, Enrolled Students: 0, Lecturer: Quinn Harris, Room: Room 23
+Module: Module 82, Programme: Indigenous Studies, Enrolled Students: 0, Lecturer: Jordan Wilson, Room: Room 14
+Module: Module 83, Programme: Urban Planning, Enrolled Students: 1, Lecturer: Jordan Wilson, Room: Room 46
+Module: Module 84, Programme: Renewable Energy, Enrolled Students: 0, Lecturer: Riley Johnson, Room: Room 12
+Module: Module 85, Programme: Nursing, Enrolled Students: 1, Lecturer: Alex Lee, Room: Room 17
+Module: Module 86, Programme: Renewable Energy, Enrolled Students: 0, Lecturer: Jamie Lee, Room: Room 25
+Module: Module 87, Programme: Forensic Science, Enrolled Students: 0, Lecturer: Jordan Smith, Room: Online
+Module: Module 88, Programme: Mechanical Engineering, Enrolled Students: 0, Lecturer: Alex Wilson, Room: Room 22
+Module: Module 89, Programme: Real Estate, Enrolled Students: 0, Lecturer: Alex Wilson, Room: Room 47
+Module: Module 90, Programme: Geography, Enrolled Students: 0, Lecturer: Taylor Lee, Room: Room 26
+Module: Module 91, Programme: Gender Studies, Enrolled Students: 1, Lecturer: Riley Smith, Room: Room 17
+Module: Module 92, Programme: Environmental Science, Enrolled Students: 1, Lecturer: Jamie Harris, Room: Online
+Module: Module 93, Programme: Education, Enrolled Students: 1, Lecturer: Robin Smith, Room: Room 34
+Module: Module 94, Programme: English Literature, Enrolled Students: 0, Lecturer: Morgan Smith, Room: Room 41
+Module: Module 95, Programme: International Relations, Enrolled Students: 1, Lecturer: Quinn Lee, Room: Room 33
+Module: Module 96, Programme: Theater Arts, Enrolled Students: 0, Lecturer: Alex Brown, Room: Room 37
+Module: Module 97, Programme: African Studies, Enrolled Students: 0, Lecturer: Robin Lee, Room: Room 7
+Module: Module 98, Programme: Chemistry, Enrolled Students: 1, Lecturer: Jamie Wilson, Room: Room 22
+Module: Module 99, Programme: Disability Studies, Enrolled Students: 0, Lecturer: Robin Harris, Room: Room 32
+Module: Module 100, Programme: Criminology, Enrolled Students: 0, Lecturer: Jordan Harris, Room: Room 14

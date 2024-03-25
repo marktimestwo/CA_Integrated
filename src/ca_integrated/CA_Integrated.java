@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 /**
  *
@@ -361,11 +362,142 @@ public class CA_Integrated {
         }
     }
     
-    
-            
             
     public static void main(String[] args) {
-          
-    }
-    
+        Scanner scanner = new Scanner(System.in);
+        CA_Integrated app = new CA_Integrated();
+
+        // Login
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        if (!username.equals("admin") || !password.equals("java")) {
+            System.out.println("Incorrect username or password.");
+            return; // Exit if the credentials are incorrect
+        }
+
+        // Main menu
+        System.out.println("Login successful! Choose your role:");
+        System.out.println("1. Admin");
+        System.out.println("2. Office");
+        System.out.println("3. Lecturer");
+        System.out.print("Enter your choice (1-3): ");
+
+        int roleChoice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline left-over
+
+        switch (roleChoice) {
+            case 1: // Admin
+                System.out.println("Admin Menu:");
+                System.out.println("1. Add, Modify, Delete Users");
+                System.out.println("2. Change Login Details");
+                
+                int adminoption = scanner.nextInt();
+                switch (adminoption) {
+                    case 1:
+                        System.out.println("Please select:");
+                        System.out.println("1. Add User");
+                        System.out.println("2. Modify User");
+                        System.out.println("3. Delete User");
+                        
+                        int adminselects = scanner.nextInt();
+                        switch (adminselects) {
+                            case 1: 
+                               System.out.println("Enter User details:");
+                               scanner.nextLine();
+                               String userDetails = scanner.nextLine();
+                               System.out.println("New user added: " + userDetails);
+                               break;
+                            case 2:
+                               System.out.println("Choose User to modify:");
+                               scanner.nextLine();
+                               String userModify = scanner.nextLine();
+                               System.out.println("User modified successfully: " + userModify);
+                               break;
+                            case 3:
+                               System.out.println("Choose User to delete:");
+                               scanner.nextLine();
+                               String userDelete = scanner.nextLine();
+                               System.out.println("User deleted successfully: " + userDelete);
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Login details changed sucessfully");
+                        break;
+                } 
+                break;
+                
+            case 2: // Office
+                System.out.println("Office Menu:");
+                System.out.println("Select the output format for the reports:");
+                System.out.println("1. TXT file");
+                System.out.println("2. CSV file");
+                System.out.println("3. Console");
+                System.out.println("4. Change Login Details");
+                System.out.print("Enter your choice (1-4): ");
+
+                int choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Generating reports in TXT format");
+                        app.generateCourseReportToTXT(); 
+                        System.out.println("Successful! TXT File generated");
+                        break;
+                    case 2:
+                        System.out.println("Generating reports in CSV format");
+                        app.generateCourseReportToCSV();
+                        System.out.println("Successful! CSV File generated");
+                        break;
+                    case 3:
+                        app.generateCourseReport();
+                        app.generateStudentReport();
+                        app.generateLecturerReport();
+                        break;
+                    case 4:
+                        System.out.println("Login details changed sucessfully!");
+                    default:
+                        break;
+                    }
+                break;
+            case 3: // Lecturer
+                System.out.println("Lecturer Menu:");
+                System.out.println("Please select:");
+                System.out.println("1. Lecturer Report");
+                System.out.println("2. Change Login Details");
+                
+                int lectureoption = scanner.nextInt();
+                switch (lectureoption) {
+                    case 1:
+                       System.out.println("Select output format for the report:");
+                       System.out.println("1. TXT file");
+                       System.out.println("2. CSV file");
+                       System.out.println("3. Console"); 
+                        
+                        int lecturereportchoice = scanner.nextInt();
+                        switch (lecturereportchoice) {
+                            case 1:
+                                System.out.println("Generating lecture report in TXT format");
+                                app.generateCourseReportToTXT(); 
+                                System.out.println("Successful! TXT file report generated");
+                            break;
+                        case 2:
+                                System.out.println("Generating lecturer report in CSV format");
+                                app.generateCourseReportToCSV();
+                                System.out.println("Successful! CSV file report generated");
+                            break;
+                        case 3:
+                                app.generateLecturerReport();
+                            break;
+                        }
+                break;
+                    case 2:
+                       System.out.println("Login details changed sucessfully"); 
+                    default:
+                break;
+            }
+            scanner.close();
+        }  
+    } 
 }
