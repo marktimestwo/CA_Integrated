@@ -161,7 +161,7 @@ public class CA_Integrated {
     }
 }       
        
-    
+    // This class implements the ReportGenerator interface to provide functionality for generating reports in text format and writing them to a .txt file
     public class TxtReportGenerator implements ReportGenerator {
 
     private void writeToTxtFile(String fileName, String content) throws IOException {
