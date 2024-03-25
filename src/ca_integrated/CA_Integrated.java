@@ -47,7 +47,38 @@ public class CA_Integrated {
         }
     }
 
-    
+        public void generateStudentReport() {
+        String studentQuery = "SELECT "
+                + "s.Student_ID, "
+                + "s.Name AS Student_Name, "
+                + "p.Programme_Name, "
+                + "GROUP_CONCAT(DISTINCT CASE WHEN e.Status = 'Enrolled' THEN m.Module_Name END) AS Current_Modules, "
+                + "GROUP_CONCAT(DISTINCT CASE WHEN e.Status = 'Completed' THEN CONCAT(m.Module_Name, ': Grade ', g.Grade) END) AS Completed_Modules_With_Grades, "
+                + "GROUP_CONCAT(DISTINCT CASE WHEN e.Status = 'To Repeat' THEN m.Module_Name END) AS Modules_To_Repeat "
+                + "FROM Students s "
+                + "JOIN Programmes p ON s.Programme_ID = p.Programme_ID "
+                + "LEFT JOIN Enrollments e ON s.Student_ID = e.Student_ID "
+                + "LEFT JOIN Modules m ON e.Module_ID = m.Module_ID "
+                + "LEFT JOIN Grades g ON e.Enrollment_ID = g.Enrollment_ID "
+                + "GROUP BY s.Student_ID";
+
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(studentQuery);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                System.out.println(String.format("Student Name: %s, Student ID: %s, Programme: %s, Current Modules: %s, Completed Modules: %s, Modules to Repeat: %s",
+                    resultSet.getString("Student_Name"),
+                    resultSet.getString("Student_ID"),
+                    resultSet.getString("Programme_Name"),
+                    resultSet.getString("Current_Modules"),
+                    resultSet.getString("Completed_Modules_With_Grades"),
+                    resultSet.getString("Modules_To_Repeat")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
     
     public static void main(String[] args) {
