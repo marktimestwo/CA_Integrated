@@ -228,10 +228,11 @@ public class CA_Integrated {
         }
     }
 }       
-            
+     
+    // CsvReportGenerator class implements the ReportGenerator interface to generate reports in CSV format.
     public class CsvReportGenerator implements ReportGenerator {
-
-    private void writeToCsvFile(String fileName, String[] headers, ResultSet resultSet) throws IOException, SQLException {
+    
+        private void writeToCsvFile(String fileName, String[] headers, ResultSet resultSet) throws IOException, SQLException {
         FileWriter csvWriter = new FileWriter(fileName, true);
 
         // Write the header
