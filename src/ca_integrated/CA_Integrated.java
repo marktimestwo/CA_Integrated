@@ -106,6 +106,60 @@ public class CA_Integrated {
         }
     }
     
+        public interface ReportGenerator {
+    void generateCourseReport(ResultSet resultSet) throws SQLException;
+    void generateStudentReport(ResultSet resultSet) throws SQLException;
+    void generateLecturerReport(ResultSet resultSet) throws SQLException;
+}
+
+   public class ConsoleReportGenerator implements ReportGenerator {
+    
+    @Override
+    public void generateCourseReport(ResultSet resultSet) throws SQLException {
+        System.out.println("Course Report:");
+        while (resultSet.next()) {
+            System.out.println(String.format("Module: %s, Programme: %s, Enrolled Students: %d, Lecturer: %s, Room: %s",
+                resultSet.getString("Module_Name"),
+                resultSet.getString("Programme_Name"),
+                resultSet.getInt("Enrolled_Students"),
+                resultSet.getString("Lecturer_Name"),
+                resultSet.getString("Room_Name")));
+        }
+    }
+
+    @Override
+    public void generateStudentReport(ResultSet resultSet) throws SQLException {
+        System.out.println("\nStudent Report:");
+        while (resultSet.next()) {
+            System.out.println(String.format("Student Name: %s, Student ID: %s, Programme: %s, Current Modules: %s, Completed Modules: %s, Modules to Repeat: %s",
+                resultSet.getString("Student_Name"),
+                resultSet.getString("Student_ID"),
+                resultSet.getString("Programme_Name"),
+                resultSet.getString("Current_Modules"),
+                resultSet.getString("Completed_Modules_With_Grades"),
+                resultSet.getString("Modules_To_Repeat")));
+        }
+    }
+
+    @Override
+    public void generateLecturerReport(ResultSet resultSet) throws SQLException {
+        System.out.println("\nLecturer Report:");
+        while (resultSet.next()) {
+            System.out.println(String.format("Lecturer: %s, Role: %s, Teaching Modules: %s, Enrolled Students: %d, Specialties: %s",
+                resultSet.getString("Name"),
+                resultSet.getString("Role"),
+                resultSet.getString("Teaching_Modules"),
+                resultSet.getInt("Enrolled_Students"),
+                resultSet.getString("Specialties")));
+        }
+    }
+}       
+            
+            
+            
+            
+            
+            
     public static void main(String[] args) {
           
     }
