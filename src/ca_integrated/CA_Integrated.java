@@ -226,7 +226,65 @@ public class CA_Integrated {
     }
 }       
             
-            
+    public class CsvReportGenerator implements ReportGenerator {
+
+    private void writeToCsvFile(String fileName, String[] headers, ResultSet resultSet) throws IOException, SQLException {
+        FileWriter csvWriter = new FileWriter(fileName, true);
+
+        // Write the header
+        for (int i = 0; i < headers.length; i++) {
+            csvWriter.append(headers[i]);
+            if (i < headers.length - 1) {
+                csvWriter.append(",");
+            }
+        }
+        csvWriter.append("\n");
+
+        // Write the data
+        while (resultSet.next()) {
+            for (int i = 0; i < headers.length; i++) {
+                csvWriter.append(resultSet.getString(i + 1)); // Assuming ResultSet columns align with headers
+                if (i < headers.length - 1) {
+                    csvWriter.append(",");
+                }
+            }
+            csvWriter.append("\n");
+        }
+
+        csvWriter.flush();
+        csvWriter.close();
+    }
+
+    @Override
+    public void generateCourseReport(ResultSet resultSet) throws SQLException {
+        String[] headers = {"Module Name", "Programme Name", "Enrolled Students", "Lecturer Name", "Room Name"};
+        try {
+            writeToCsvFile("CourseReport.csv", headers, resultSet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void generateStudentReport(ResultSet resultSet) throws SQLException {
+        String[] headers = {"Student Name", "Student ID", "Programme", "Current Modules", "Completed Modules", "Modules to Repeat"};
+        try {
+            writeToCsvFile("StudentReport.csv", headers, resultSet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void generateLecturerReport(ResultSet resultSet) throws SQLException {
+        String[] headers = {"Lecturer Name", "Role", "Teaching Modules", "Enrolled Students", "Specialties"};
+        try {
+            writeToCsvFile("LecturerReport.csv", headers, resultSet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}        
             
             
     public static void main(String[] args) {
