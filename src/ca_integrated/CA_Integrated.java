@@ -365,7 +365,10 @@ public class CA_Integrated {
         }
     }
     
-            
+    
+    
+    
+    // Main method for the application of the Java that utilises a menu console in order for the user to generate specific reports
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CA_Integrated app = new CA_Integrated();
