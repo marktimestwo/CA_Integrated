@@ -4,6 +4,7 @@
  */
 package ca_integrated;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -284,7 +285,83 @@ public class CA_Integrated {
             e.printStackTrace();
         }
     }
-}        
+}
+    
+    public ReportGenerator getReportGenerator(String outputType) {
+        switch (outputType.toLowerCase()) {
+            case "console":
+                return new ConsoleReportGenerator();
+            case "txt":
+                return new TxtReportGenerator();
+            case "csv":
+                return new CsvReportGenerator();
+            default:
+                throw new IllegalArgumentException("Unsupported output type: " + outputType);
+        }
+    }
+
+    
+    private void generateReportToFile(String reportContent, String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(reportContent);
+        } catch (IOException e) {
+            System.err.println("An error occurred while writing to the TXT file.");
+            e.printStackTrace();
+        }
+    }
+
+    public void generateCourseReportToTXT() {
+        StringBuilder reportBuilder = new StringBuilder();
+        String courseQuery = "SELECT m.Module_Name, p.Programme_Name, COUNT(e.Student_ID) AS Enrolled_Students, "
+                + "l.Name AS Lecturer_Name, r.Room_Name FROM Modules m JOIN Programmes p ON m.Programme_ID = p.Programme_ID "
+                + "LEFT JOIN Enrollments e ON m.Module_ID = e.Module_ID AND e.Status = 'Enrolled' JOIN Module_Lecturers ml ON m.Module_ID = ml.Module_ID "
+                + "JOIN Lecturers l ON ml.Lecturer_ID = l.Lecturer_ID LEFT JOIN Rooms r ON m.Room_ID = r.Room_ID GROUP BY m.Module_ID, l.Name";
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(courseQuery);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                reportBuilder.append(String.format("Module: %s, Programme: %s, Enrolled Students: %d, Lecturer: %s, Room: %s%n",
+                        resultSet.getString("Module_Name"),
+                        resultSet.getString("Programme_Name"),
+                        resultSet.getInt("Enrolled_Students"),
+                        resultSet.getString("Lecturer_Name"),
+                        resultSet.getString("Room_Name")));
+            }
+            generateReportToFile(reportBuilder.toString(), "CourseReport.txt");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    private void generateCourseReportToCSV() {
+        StringBuilder csvBuilder = new StringBuilder();
+        csvBuilder.append("Module Name,Programme Name,Enrolled Students,Lecturer Name,Room Name\n");
+    
+        String courseQuery = "SELECT m.Module_Name, p.Programme_Name, COUNT(e.Student_ID) AS Enrolled_Students, "
+                + "l.Name AS Lecturer_Name, r.Room_Name FROM Modules m JOIN Programmes p ON m.Programme_ID = p.Programme_ID "
+                + "LEFT JOIN Enrollments e ON m.Module_ID = e.Module_ID AND e.Status = 'Enrolled' JOIN Module_Lecturers ml ON m.Module_ID = ml.Module_ID "
+                + "JOIN Lecturers l ON ml.Lecturer_ID = l.Lecturer_ID LEFT JOIN Rooms r ON m.Room_ID = r.Room_ID GROUP BY m.Module_ID, l.Name";
+        try (Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(courseQuery);
+            ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                csvBuilder.append(String.format("\"%s\",\"%s\",%d,\"%s\",\"%s\"\n",
+                    resultSet.getString("Module_Name"),
+                    resultSet.getString("Programme_Name"),
+                    resultSet.getInt("Enrolled_Students"),
+                    resultSet.getString("Lecturer_Name"),
+                    resultSet.getString("Room_Name")));
+            }
+            generateReportToFile(csvBuilder.toString(), "CourseReport.csv");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
             
             
     public static void main(String[] args) {
