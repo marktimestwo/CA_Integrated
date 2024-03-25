@@ -51,7 +51,7 @@ public class CA_Integrated {
             e.printStackTrace();
         }
     }
-
+    // Similar concept as the method above
     public void generateStudentReport() {
         String studentQuery = "SELECT "
                 + "s.Student_ID, "
