@@ -4,6 +4,9 @@
  */
 package ca_integrated;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,7 +28,7 @@ public class CA_Integrated {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
     
-        public void generateCourseReport() {
+    public void generateCourseReport() {
         String courseQuery = "SELECT m.Module_Name, p.Programme_Name, COUNT(e.Student_ID) AS Enrolled_Students, "
                 + "l.Name AS Lecturer_Name, r.Room_Name FROM Modules m JOIN Programmes p ON m.Programme_ID = p.Programme_ID "
                 + "LEFT JOIN Enrollments e ON m.Module_ID = e.Module_ID AND e.Status = 'Enrolled' JOIN Module_Lecturers ml ON m.Module_ID = ml.Module_ID "
@@ -47,7 +50,7 @@ public class CA_Integrated {
         }
     }
 
-        public void generateStudentReport() {
+    public void generateStudentReport() {
         String studentQuery = "SELECT "
                 + "s.Student_ID, "
                 + "s.Name AS Student_Name, "
@@ -80,7 +83,7 @@ public class CA_Integrated {
         }
     }
     
-            public void generateLecturerReport() {
+    public void generateLecturerReport() {
         String lecturerQuery = "SELECT l.Name, l.Role, GROUP_CONCAT(DISTINCT m.Module_Name ORDER BY m.Module_Name SEPARATOR ', ') AS Teaching_Modules, "
                 + "COUNT(DISTINCT e.Student_ID) AS Enrolled_Students, l.Specialties "
                 + "FROM Lecturers l "
@@ -106,13 +109,13 @@ public class CA_Integrated {
         }
     }
     
-        public interface ReportGenerator {
+    public interface ReportGenerator {
     void generateCourseReport(ResultSet resultSet) throws SQLException;
     void generateStudentReport(ResultSet resultSet) throws SQLException;
     void generateLecturerReport(ResultSet resultSet) throws SQLException;
 }
 
-   public class ConsoleReportGenerator implements ReportGenerator {
+    public class ConsoleReportGenerator implements ReportGenerator {
     
     @Override
     public void generateCourseReport(ResultSet resultSet) throws SQLException {
@@ -154,8 +157,74 @@ public class CA_Integrated {
         }
     }
 }       
-            
-            
+       
+    
+    public class TxtReportGenerator implements ReportGenerator {
+
+    private void writeToTxtFile(String fileName, String content) throws IOException {
+        try (PrintWriter out = new PrintWriter(new FileWriter(fileName, true))) {
+            out.println(content);
+        }
+    }
+
+    @Override
+    public void generateCourseReport(ResultSet resultSet) throws SQLException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Course Report:\n");
+        while (resultSet.next()) {
+            sb.append(String.format("Module: %s, Programme: %s, Enrolled Students: %d, Lecturer: %s, Room: %s\n",
+                    resultSet.getString("Module_Name"),
+                    resultSet.getString("Programme_Name"),
+                    resultSet.getInt("Enrolled_Students"),
+                    resultSet.getString("Lecturer_Name"),
+                    resultSet.getString("Room_Name")));
+        }
+        try {
+            writeToTxtFile("CourseReport.txt", sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void generateStudentReport(ResultSet resultSet) throws SQLException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nStudent Report:\n");
+        while (resultSet.next()) {
+            sb.append(String.format("Student Name: %s, Student ID: %s, Programme: %s, Current Modules: %s, Completed Modules: %s, Modules to Repeat: %s\n",
+                    resultSet.getString("Student_Name"),
+                    resultSet.getString("Student_ID"),
+                    resultSet.getString("Programme_Name"),
+                    resultSet.getString("Current_Modules"),
+                    resultSet.getString("Completed_Modules_With_Grades"),
+                    resultSet.getString("Modules_To_Repeat")));
+        }
+        try {
+            writeToTxtFile("StudentReport.txt", sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void generateLecturerReport(ResultSet resultSet) throws SQLException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nLecturer Report:\n");
+        while (resultSet.next()) {
+            sb.append(String.format("Lecturer: %s, Role: %s, Teaching Modules: %s, Enrolled Students: %d, Specialties: %s\n",
+                    resultSet.getString("Name"),
+                    resultSet.getString("Role"),
+                    resultSet.getString("Teaching_Modules"),
+                    resultSet.getInt("Enrolled_Students"),
+                    resultSet.getString("Specialties")));
+        }
+        try {
+            writeToTxtFile("LecturerReport.txt", sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}       
             
             
             
