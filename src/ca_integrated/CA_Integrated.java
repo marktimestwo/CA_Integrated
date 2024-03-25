@@ -80,6 +80,31 @@ public class CA_Integrated {
         }
     }
     
+            public void generateLecturerReport() {
+        String lecturerQuery = "SELECT l.Name, l.Role, GROUP_CONCAT(DISTINCT m.Module_Name ORDER BY m.Module_Name SEPARATOR ', ') AS Teaching_Modules, "
+                + "COUNT(DISTINCT e.Student_ID) AS Enrolled_Students, l.Specialties "
+                + "FROM Lecturers l "
+                + "JOIN Module_Lecturers ml ON l.Lecturer_ID = ml.Lecturer_ID "
+                + "JOIN Modules m ON ml.Module_ID = m.Module_ID "
+                + "LEFT JOIN Enrollments e ON m.Module_ID = e.Module_ID "
+                + "GROUP BY l.Lecturer_ID";
+
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(lecturerQuery);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                System.out.println(String.format("Lecturer: %s, Role: %s, Teaching Modules: %s, Enrolled Students: %d, Specialties: %s",
+                    resultSet.getString("Name"),
+                    resultSet.getString("Role"),
+                    resultSet.getString("Teaching_Modules"),
+                    resultSet.getInt("Enrolled_Students"),
+                    resultSet.getString("Specialties")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
     public static void main(String[] args) {
           
