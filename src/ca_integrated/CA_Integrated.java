@@ -370,33 +370,33 @@ public class CA_Integrated {
     
     // Main method for the application of the Java that utilises a menu console in order for the user to generate specific reports
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CA_Integrated app = new CA_Integrated();
+        Scanner scanner = new Scanner(System.in); // Reading user inputs
+        CA_Integrated app = new CA_Integrated(); // Creates an instance of the application class to access the methods
 
-        // Login
-        System.out.print("Enter username: ");
+        // Login prompts
+        System.out.print("Enter username: "); // Prompts for usernam
         String username = scanner.nextLine();
-        System.out.print("Enter password: ");
+        System.out.print("Enter password: "); // Prompts for password
         String password = scanner.nextLine();
-
+        // Validates the credentials
         if (!username.equals("admin") || !password.equals("java")) {
             System.out.println("Incorrect username or password.");
             return; // Exit if the credentials are incorrect
         }
 
-        // Main menu
+        // Main menu displaying role options
         System.out.println("Login successful! Choose your role:");
         System.out.println("1. Admin");
         System.out.println("2. Office");
         System.out.println("3. Lecturer");
-        System.out.print("Enter your choice (1-3): ");
+        System.out.print("Enter your choice (1-3): "); // Prompts to select user choice
 
-        int roleChoice = scanner.nextInt();
+        int roleChoice = scanner.nextInt(); // Reads the next role choice
         scanner.nextLine(); // Consume newline left-over
 
         switch (roleChoice) {
-            case 1: // Admin
-                System.out.println("Admin Menu:");
+            case 1: // Admin role
+                System.out.println("Admin Menu:"); // Admin specific choices that displays more admin options
                 System.out.println("1. Add, Modify, Delete Users");
                 System.out.println("2. Change Login Details");
                 
@@ -408,34 +408,34 @@ public class CA_Integrated {
                         System.out.println("2. Modify User");
                         System.out.println("3. Delete User");
                         
-                        int adminselects = scanner.nextInt();
+                        int adminselects = scanner.nextInt(); // Reads admin selection choice providing more sub choices
                         switch (adminselects) {
-                            case 1: 
+                            case 1:  // Add user option
                                System.out.println("Enter User details:");
                                scanner.nextLine();
                                String userDetails = scanner.nextLine();
                                System.out.println("New user added: " + userDetails);
                                break;
-                            case 2:
+                            case 2: // Modify user option
                                System.out.println("Choose User to modify:");
                                scanner.nextLine();
                                String userModify = scanner.nextLine();
                                System.out.println("User modified successfully: " + userModify);
                                break;
-                            case 3:
+                            case 3: // Delete user option
                                System.out.println("Choose User to delete:");
                                scanner.nextLine();
                                String userDelete = scanner.nextLine();
                                System.out.println("User deleted successfully: " + userDelete);
                         }
                         break;
-                    case 2:
+                    case 2: // Successful message
                         System.out.println("Login details changed sucessfully");
                         break;
                 } 
                 break;
                 
-            case 2: // Office
+            case 2: // Office role with various options
                 System.out.println("Office Menu:");
                 System.out.println("Select the output format for the reports:");
                 System.out.println("1. TXT file");
@@ -444,38 +444,38 @@ public class CA_Integrated {
                 System.out.println("4. Change Login Details");
                 System.out.print("Enter your choice (1-4): ");
 
-                int choice = scanner.nextInt();
+                int choice = scanner.nextInt(); // Reads office choice
                 switch (choice) {
-                    case 1:
+                    case 1: // TXT report option
                         System.out.println("Generating reports in TXT format");
                         app.generateCourseReportToTXT(); 
                         System.out.println("Successful! TXT File generated");
                         break;
-                    case 2:
+                    case 2: // CSV report option
                         System.out.println("Generating reports in CSV format");
                         app.generateCourseReportToCSV();
                         System.out.println("Successful! CSV File generated");
                         break;
-                    case 3:
+                    case 3: // Console report option
                         app.generateCourseReport();
                         app.generateStudentReport();
                         app.generateLecturerReport();
                         break;
-                    case 4:
+                    case 4: // Successful message
                         System.out.println("Login details changed sucessfully!");
                     default:
                         break;
                     }
                 break;
-            case 3: // Lecturer
+            case 3: // Lecturer role with a couple options
                 System.out.println("Lecturer Menu:");
                 System.out.println("Please select:");
                 System.out.println("1. Lecturer Report");
                 System.out.println("2. Change Login Details");
                 
-                int lectureoption = scanner.nextInt();
-                switch (lectureoption) {
-                    case 1:
+                int lectureoption = scanner.nextInt(); // Reads lecturer choice
+                switch (lectureoption) { // Reads lecturer choice providing more sub choices
+                    case 1: 
                        System.out.println("Select output format for the report:");
                        System.out.println("1. TXT file");
                        System.out.println("2. CSV file");
@@ -483,22 +483,22 @@ public class CA_Integrated {
                         
                         int lecturereportchoice = scanner.nextInt();
                         switch (lecturereportchoice) {
-                            case 1:
+                            case 1: // TXT report option
                                 System.out.println("Generating lecture report in TXT format");
                                 app.generateCourseReportToTXT(); 
                                 System.out.println("Successful! TXT file report generated");
-                            break;
-                        case 2:
+                                break;
+                            case 2: // CSV report option
                                 System.out.println("Generating lecturer report in CSV format");
                                 app.generateCourseReportToCSV();
                                 System.out.println("Successful! CSV file report generated");
-                            break;
-                        case 3:
+                                break;
+                            case 3: // Console lecturer report ONLY
                                 app.generateLecturerReport();
-                            break;
-                        }
-                break;
-                    case 2:
+                                break;
+                            }
+                        break;
+                    case 2: // Successful message
                        System.out.println("Login details changed sucessfully"); 
                     default:
                 break;
