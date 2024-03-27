@@ -20,11 +20,11 @@ import java.util.Scanner;
  * @author marktimestwo
  */
 public class CA_Integrated {
-    // Database connection to establish and return data from MySQL  
+    // Database connection constants
     private static final String URL = "jdbc:mysql://localhost:3306/Integrated_CA";
     private static final String USER = "root";
     private static final String PASSWORD = "@Markcodestoo24";
-
+    // Method to establish and return database connection using JDBC API
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
@@ -290,32 +290,32 @@ public class CA_Integrated {
     }
 }
     
-    // This implements a part of a method application that generates academic reports in various formats.
+    // Method to get a ReportGenerator instance based on the output type
     public ReportGenerator getReportGenerator(String outputType) {
         switch (outputType.toLowerCase()) {
             case "console":
-                return new ConsoleReportGenerator();
+                return new ConsoleReportGenerator(); // For console output
             case "txt":
-                return new TxtReportGenerator();
+                return new TxtReportGenerator(); // For txt output
             case "csv":
-                return new CsvReportGenerator();
+                return new CsvReportGenerator(); // For csv output
             default:
-                throw new IllegalArgumentException("Unsupported output type: " + outputType);
+                throw new IllegalArgumentException("Unsupported output type: " + outputType); // Unsupported output error
         }
     }
 
-    
+    // Method to write a string content to a file
     private void generateReportToFile(String reportContent, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write(reportContent);
         } catch (IOException e) {
-            System.err.println("An error occurred while writing to the TXT file.");
+            System.err.println("An error occurred while writing to the file.");
             e.printStackTrace();
         }
     }
-
+    // Method to generate report in txt format
     public void generateCourseReportToTXT() {
-        StringBuilder reportBuilder = new StringBuilder();
+        StringBuilder reportBuilder = new StringBuilder(); // SQL query to extract data
         String courseQuery = "SELECT m.Module_Name, p.Programme_Name, COUNT(e.Student_ID) AS Enrolled_Students, "
                 + "l.Name AS Lecturer_Name, r.Room_Name FROM Modules m JOIN Programmes p ON m.Programme_ID = p.Programme_ID "
                 + "LEFT JOIN Enrollments e ON m.Module_ID = e.Module_ID AND e.Status = 'Enrolled' JOIN Module_Lecturers ml ON m.Module_ID = ml.Module_ID "
@@ -338,11 +338,11 @@ public class CA_Integrated {
         }
     }
     
-    
+    // Method to generate report in csv format
     private void generateCourseReportToCSV() {
         StringBuilder csvBuilder = new StringBuilder();
         csvBuilder.append("Module Name,Programme Name,Enrolled Students,Lecturer Name,Room Name\n");
-    
+        // SQL query to extract data
         String courseQuery = "SELECT m.Module_Name, p.Programme_Name, COUNT(e.Student_ID) AS Enrolled_Students, "
                 + "l.Name AS Lecturer_Name, r.Room_Name FROM Modules m JOIN Programmes p ON m.Programme_ID = p.Programme_ID "
                 + "LEFT JOIN Enrollments e ON m.Module_ID = e.Module_ID AND e.Status = 'Enrolled' JOIN Module_Lecturers ml ON m.Module_ID = ml.Module_ID "
